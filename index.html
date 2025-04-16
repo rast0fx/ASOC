@@ -87,6 +87,11 @@ header {
     border-bottom: 1px solid var(--secondary-color);
 }
 
+.navbar {
+    position: relative;
+    z-index: 1000;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -170,32 +175,117 @@ nav {
     transform: rotate(90deg);
 }
 
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 0.2rem;
+    right: 2rem;
+    z-index: 1001;
+}
+
+.mobile-menu-btn .menu-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.8) 0%, rgba(255, 215, 0, 0.6) 100%);
+    margin-bottom: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1.5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-menu-btn .menu-icon:nth-child(2) {
+    margin-bottom: 8px;
+}
+
+.mobile-menu-btn.active .menu-icon {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.9) 0%, rgba(255, 215, 0, 0.7) 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-menu-btn.active .menu-icon:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-menu-btn.active .menu-icon:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.mobile-menu-btn.active .menu-icon:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+.mobile-menu-btn.active .menu-icon:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active .menu-icon:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active .menu-icon:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
+    z-index: 1000;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav li {
+    margin-bottom: 1rem;
+}
+
+.mobile-nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    color: var(--secondary-color);
+}
+
 @media (max-width: 768px) {
-    .menu-toggle {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
         display: block;
     }
     
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.98);
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        transform: translateY(-150%);
-        transition: transform 0.3s ease;
-        z-index: 1000;
-        height: calc(100vh - 70px);
+    .mobile-nav {
+        display: none;
     }
     
-    .nav-links.show {
-        transform: translateY(0);
-    }
-    
-    .nav-links li {
-        margin: 1rem 0;
+    .mobile-menu-btn.active + .mobile-nav {
+        display: block;
     }
 }
 
@@ -254,21 +344,71 @@ nav {
 }
 
 .hero-badge {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 5px;
-    margin-top: 2rem;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(15, 15, 15, 0.2) 100%);
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-top: 2.5rem;
     text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .watermark {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(15, 15, 15, 0.1) 100%);
+    margin: 1.25rem 0;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.watermark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
 }
 
 .watermark:hover {
+    color: #FFD700;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.15) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.watermark:hover::before {
+    transform: translateX(0);
+}
+
+.author-name {
+    font-weight: 700;
+    color: #FFD700;
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.author-title {
     color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-top: 0.35rem;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 /* Units Section Styles */
@@ -289,32 +429,56 @@ nav {
 }
 
 .tab-btn {
-    background: rgba(0, 0, 0, 0.7);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%);
     color: #FFD700;
-    border: 1px solid #FFD700;
-    padding: 0.75rem 1.5rem;
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    padding: 0.85rem 1.75rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: 'Orbitron', sans-serif;
-    border-radius: 4px;
+    border-radius: 6px;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 0.95rem;
+    letter-spacing: 1.2px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
 }
 
 .tab-btn:hover {
-    background: rgba(255, 215, 0, 0.1);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 215, 0, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.tab-btn:hover::before {
+    transform: translateX(0);
 }
 
 .tab-btn.active {
-    background: #FFD700;
+    background: linear-gradient(135deg, #FFD700 0%, #FFD700 100%);
     color: #1a1a1a;
     border-color: #FFD700;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+    position: relative;
+}
+
+.tab-btn.active::before {
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), transparent);
+    transform: translateX(0);
 }
 
 .tab-content {
@@ -625,26 +789,69 @@ nav {
 }
 
 .mission-statement {
-    background: white;
-    padding: 2rem;
-    margin-top: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    padding: 2.5rem;
+    margin-top: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-statement::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.05), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.mission-statement:hover::before {
+    transform: translateX(0);
 }
 
 .mission-statement h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+    color: #FFD700;
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .mission-statement p {
     font-style: italic;
-    color: var(--accent-color);
-    border-left: 4px solid #FFD700; 
-    padding-left: 1rem; 
-    background: rgba(255, 215, 0, 0.05); 
-    padding: 1rem; 
-    border-radius: 0 4px 4px 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    position: relative;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.mission-statement p::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    font-size: 3rem;
+    color: rgba(255, 215, 0, 0.1);
+    line-height: 1;
+}
+
+.mission-statement p::after {
+    content: '"';
+    position: absolute;
+    bottom: -0.5rem;
+    right: 0;
+    font-size: 3rem;
+    color: rgba(255, 215, 0, 0.1);
+    line-height: 1;
 }
 
 .command-section {
@@ -707,50 +914,68 @@ footer {
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 0 2rem;
+    padding: 2rem;
+    text-align: center;
 }
 
 .footer-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .footer-section h3 {
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
-    padding-bottom: 0.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .footer-links {
     list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .footer-links li {
-    margin-bottom: 0.5rem;
+    width: 100%;
+    max-width: 300px;
 }
 
 .footer-links a {
     color: var(--accent-color);
     text-decoration: none;
-    transition: color 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background: rgba(255, 215, 0, 0.05);
 }
 
 .footer-links a:hover {
     color: var(--secondary-color);
+    background: rgba(255, 215, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.footer-links img {
+    height: 20px;
+    width: auto;
+    margin-right: 8px;
 }
 
 .copyright {
-    text-align: center;
-    padding-top: 1.5rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.copyright p {
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
 }
 
@@ -776,6 +1001,82 @@ footer {
     .social-links {
         justify-content: center;
     }
+    
+    .propaganda-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+}
+
+.propaganda-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.propaganda-section h2 {
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.propaganda-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFD700, rgba(255, 215, 0, 0.5));
+}
+
+.media-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.video-item {
+    aspect-ratio: 16/9;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.video-item:hover {
+    border-color: #FFD700;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.image-item {
+    aspect-ratio: 4/3;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.image-item:hover {
+    border-color: #FFD700;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
 }
 
 /* Search Highlight Style */
@@ -812,8 +1113,13 @@ footer {
 
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .video-container iframe {
@@ -822,6 +1128,23 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
+    border: none;
+    border-radius: 8px;
+    background: #000;
+    object-fit: contain;
+    display: block;
+}
+
+.gallery-item .gallery-caption {
+    color: #FFD700;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-caption {
@@ -833,19 +1156,33 @@ footer {
 </style>
 <body>
     <header>
-        <nav>
+        <nav class="navbar">
             <div class="logo">
-                <img src="https://i.postimg.cc/sgHmDkv6/usasoc-dui-800-removebg-preview.png" alt="USASOC Logo" class="logo-img">
+                <img src="https://i.postimg.cc/sgHmDkv6/usasoc-dui-800-removebg-preview.png" alt="Logo" class="logo-img">
                 <span class="logo-text">USASOC</span>
             </div>
-            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            
             <ul class="nav-links">
                 <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                <li><a href="#units"><i class="fas fa-envelope"></i> Units</a></li>
+                <li><a href="#units"><i class="fas fa-users"></i> Units</a></li>
                 <li><a href="#propaganda"><i class="fas fa-image"></i> Propaganda</a></li>
             </ul>
             
+            <!-- New Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+                <span class="menu-icon"></span>
+                <span class="menu-icon"></span>
+            </button>
+            <div class="mobile-nav">
+                <ul>
+                    <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#units"><i class="fas fa-users"></i> Units</a></li>
+                    <li><a href="#propaganda"><i class="fas fa-image"></i> Propaganda</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -853,10 +1190,11 @@ footer {
         <section id="hero">
             <div class="hero-content">
                 <h1>Army Special Operations Command</h1>
-                <p>Elite Forces • Strategic Operations • Training</p>
+                <p><b><i>"Sine Pari"</i></b></p>
                 <div class="hero-badge">
                     <a href="https://rast0fx.github.io/Portfolio/" class="watermark" target="_blank">
-                        Made by Mhamad Koussa (rast0fx)
+                        <span class="author-name">Mhamad Koussa (rast0fx)</span>
+                        <span class="author-title">Lead Developer</span>
                     </a>
                 </div>
             </div>
@@ -872,7 +1210,7 @@ footer {
                     <p style="color: #FF0000; font-weight: bold; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); border-left: 4px solid #FFD700; padding-left: 1rem; background: rgba(255, 215, 0, 0.05); padding: 1rem; border-radius: 0 4px 4px 0;">"To provide rapid, sustainable, and scalable special operations forces ready to deploy, fight, and win across the full spectrum of military operations."</p>
                 </div>
                 <div class="unit-section command-section">
-                    <h4 style="border-bottom: 2px solid #FFD700; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">ASOC Chain of Command</h4>
+                    <h4>ASOC Chain of Command</h4>
                     <p class="command-intro">Below is the official ASOC Chain of Command that all personnel are required to follow:</p>
                     
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
@@ -1138,25 +1476,61 @@ footer {
 
 
 
-<section id="propaganda">
-    <center><h2>Unit Propaganda Gallery</h2></center>
-    <div class="media-gallery">
-        <div class="gallery-grid">
-            <!-- Image Example -->
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/400x300?text=Unit+Propaganda" alt="Unit Propaganda Image">
-                <div class="gallery-caption"></div>
-            </div>
-            
-            <!-- Video Example -->
-            <div class="gallery-item">
-                <div class="video-container">
-                    <iframe src="" frameborder="0" allowfullscreen></iframe>
+<section id="propaganda" class="propaganda-section">
+    <div class="propaganda-container">
+        <div class="propaganda-section videos">
+            <h2>Video Propaganda</h2>
+            <div class="media-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item video-item">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/QNCLsI4Hgg8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="gallery-caption">Army Special Operations Command</div>
+                    </div>
+                    
+                    <div class="gallery-item video-item">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/jaw0N--EcF0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="gallery-caption">Nightstalkers Battalion, 160th SOAR</div>
+                    </div>
+                    <div class="gallery-item video-item">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/iIPQNP3qroY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="gallery-caption">Army Special Operations Command</div>
+                    </div>
                 </div>
-                <div class="gallery-caption"></div>
             </div>
-            
-            <!-- Add more items as needed -->
+        </div>
+
+        <div class="propaganda-section images">
+            <h2>Image Propaganda</h2>
+            <div class="media-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item image-item">
+                        <img src="https://i.postimg.cc/mkvqng5K/pouiy.png" alt="Army Special Forces Propaganda">
+                        <div class="gallery-caption">Army Special Forces</div>
+                    </div>
+                    <div class="gallery-item image-item">
+                        <img src="https://i.postimg.cc/nLVH237B/tweaker-00000.png" alt="42nd Orbital Division Propaganda">
+                        <div class="gallery-caption">42nd Orbital Division</div>
+                    </div>
+                    <div class="gallery-item image-item">
+                        <img src="https://i.postimg.cc/J7HRpDy6/SOAR-24.png" alt="160th SOAR Propaganda">
+                        <div class="gallery-caption">160th SOAR</div>
+                    </div>
+                    <div class="gallery-item image-item">
+                        <img src="https://i.postimg.cc/fLGnGC3H/75th-Thumbnail-1.png" alt="75th Rangers Regiment Propaganda">
+                        <div class="gallery-caption">75th Rangers Regiment</div>
+                    </div>
+                    <div class="gallery-item image-item">
+                        <img src="https://i.postimg.cc/VkKyfmr0/Sans-titre-pdn-2.png" alt="John F. Kennedy Special Warfare Center and School Propaganda">
+                        <div class="gallery-caption">John F. Kennedy Special Warfare Center and School</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1168,7 +1542,7 @@ footer {
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Official Roblox Groups</h3>
-                <ul class="footer-links">
+                <center> </center><ul class="footer-links">
                     <li><a href="https://www.roblox.com/communities/3114833/Army-Special-Operations-Command#!/about" target="_blank"><img src="https://i.postimg.cc/sgHmDkv6/usasoc-dui-800-removebg-preview.png" alt="ASOC Logo" style="height: 20px; margin-right: 8px;"> ASOC Headquarters</a></li>
                     <li><a href="https://www.roblox.com/communities/34097972/42nd-Orbital-Operations-Division#!/about" target="_blank"><img src="https://i.postimg.cc/SxK6Yg9n/42nd-Orbital-Operations-Division3-removebg-preview.png" alt="42nd Orbital Logo" style="height: 20px; margin-right: 8px;"> 42nd Orbital Division</a></li>
                     <li><a href="https://www.roblox.com/communities/4985471/John-F-Kennedy-Special-Warfare-Center-and-School#!/about" target="_blank"><img src="https://i.postimg.cc/T2yBgcrH/120px-Swcs-crest-removebg-preview.png" alt="JFK Logo" style="height: 20px; margin-right: 8px;"> JFK Warfare Center</a></li>
@@ -1176,6 +1550,7 @@ footer {
                     <li><a href="https://www.roblox.com/communities/4978956/160th-Special-Operations-Aviati-n-Regiment#!/about" target="_blank"><img src="https://i.postimg.cc/bw0T1ZC5/160th-SOAR-emblem-svg-removebg-preview.png" alt="160th SOAR Logo" style="height: 20px; margin-right: 8px;"> 160th SOAR</a></li>
                 </ul>
             </div>
+            </center>
             
            
         </div>
@@ -1331,9 +1706,10 @@ function initSearch() {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initSearch);
 
-// Mobile menu toggle
-document.querySelector('.menu-toggle').addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('show');
+// Mobile menu functionality
+document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+    document.querySelector('.mobile-menu-btn').classList.toggle('active');
+    document.querySelector('.mobile-nav').classList.toggle('active');
 });
     </script>
 </body>

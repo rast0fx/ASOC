@@ -430,12 +430,12 @@ nav {
 
 .tab-btn {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%);
-    color: #FFD700;
+    color: rgb(255, 255, 255);
     border: 2px solid rgba(255, 215, 0, 0.2);
     padding: 0.85rem 1.75rem;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Arial Narrow', Arial, sans-serif;
     border-radius: 6px;
     text-transform: uppercase;
     font-size: 0.95rem;
@@ -443,6 +443,7 @@ nav {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     position: relative;
     overflow: hidden;
+    font-weight: bold;
 }
 
 .tab-btn::before {
@@ -512,19 +513,15 @@ nav {
 .unit-badge {
     width: 100px;
     height: 100px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
     overflow: hidden;
 }
 
 .unit-emblem {
-    width: 80%;
-    height: 80%;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
     filter: brightness(1.1) drop-shadow(0 0 2px rgba(255, 215, 0, 0.5));
 }
@@ -579,7 +576,7 @@ nav {
     font-size: 1.1rem;
     letter-spacing: 0.5px;
     margin-bottom: 1.2rem;
-    color: var(--primary-color);
+    color: #FFD700;
     margin-bottom: 1rem;
     font-size: 1.2rem;
     letter-spacing: 1px;
@@ -897,9 +894,9 @@ footer {
 .propaganda-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .propaganda-section h2 {
@@ -975,9 +972,9 @@ footer {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 15px;
 }
 
 .gallery-item {
@@ -1040,6 +1037,55 @@ footer {
     color: #FFD700;
     font-weight: bold;
 }
+
+.propaganda-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.propaganda-section {
+    width: 100%;
+    text-align: center;
+}
+
+.media-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.media-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 </style>
 <body>
     <header>
@@ -1078,18 +1124,13 @@ footer {
             <div class="hero-content">
                 <h1>Army Special Operations Command</h1>
                 <p><b><i>"Sine Pari"</i></b></p>
-                <div class="hero-badge">
-                    <a href="https://rast0fx.github.io/Portfolio/" class="watermark" target="_blank">
-                        <span class="author-name">Mhamad Koussa (rast0fx)</span>
-                        <span class="author-title">Lead Developer</span>
-                    </a>
-                </div>
+                
             </div>
            
         </section>
         <section id="about">
             <font color="black">
-                <center><h2>About ASOC</h2></center>
+                <center><h2 style="color: #FFD700;">About ASOC</h2></center>
             <div class="about-content highlight">
                 <p style="border-left: 4px solid #FFD700; padding-left: 1rem; background: rgba(255, 215, 0, 0.05); padding: 1rem; border-radius: 0 4px 4px 0;">Army Special Operations Command is responsible for the command and control of Army special operations forces worldwide. We provide rapid, sustainable, and scalable special operations forces ready to deploy, fight, and win.</p>
                 <div class="mission-statement">
@@ -1097,7 +1138,7 @@ footer {
                     <p style="color: #FF0000; font-weight: bold; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); border-left: 4px solid #FFD700; padding-left: 1rem; background: rgba(255, 215, 0, 0.05); padding: 1rem; border-radius: 0 4px 4px 0;">"To provide rapid, sustainable, and scalable special operations forces ready to deploy, fight, and win across the full spectrum of military operations."</p>
                 </div>
                 <div class="unit-section command-section">
-                    <h4>ASOC Chain of Command</h4>
+                    <h4 style="color: #FFD700;">ASOC Chain of Command</h4>
                     <p class="command-intro">Below is the official ASOC Chain of Command that all personnel are required to follow:</p>
                     
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
@@ -1108,7 +1149,7 @@ footer {
                             <span class="command-title">Deputy Commanding General: <span class="command-name">Lieutenant General, CowTyrant</span></span>
                         </div>
                         <div class="command-item" style="margin-bottom: 0.75rem;">
-                            <span class="command-title">Command Sergeant Major: <span class="command-name">Command Sergeant Major, AliveMessi102</span></span>
+                            <span class="command-title">Command Sergeant Major: <span class="command-name"> VACANT</span></span>
                         </div>
                         <div class="command-item" style="margin-bottom: 0.75rem;">
                             <span class="command-title">Chief of Staff: <span class="command-name">Major General, NeroOvuh</span></span>
@@ -1121,21 +1162,21 @@ footer {
             </div>
             <div class="asoc2-link" style="margin: 20px 0; text-align: center;">
                 <a href="https://rast0fx.github.io/ASOC2/" class="tab-btn" style="display: inline-block; margin: 0 auto;">
-                    View ASOC Position Information & Uniform Regulations
+                    View the ASOC Position Information & Uniform Regulations
                 </a>
             </div>
             </font>
         </section>
 
         <section id="units">
-    <center><h2>Our Elite Units</h2></center>
+    <center><h2 style="color: #FFD700;">Our Elite Units</h2></center>
     <div class="tab-container">
         <div class="tab-buttons">
-            <button class="tab-btn active" data-tab="rangers">75th RR</button>
-            <button class="tab-btn" data-tab="orbital">42nd OOD</button>
-            <button class="tab-btn" data-tab="special-forces">ASF</button>
-            <button class="tab-btn" data-tab="jfk">JFKSWCS</button>
-            <button class="tab-btn" data-tab="soar">160th SOAR</button>
+            <button class="tab-btn active" data-tab="rangers" style="color: rgb(255, 255, 255); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Arial Narrow', Arial, sans-serif;">75th RR</button>
+            <button class="tab-btn" data-tab="orbital" style="color: rgb(255, 255, 255); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Arial Narrow', Arial, sans-serif;">42nd OOD</button>
+            <button class="tab-btn" data-tab="special-forces" style="color: rgb(255, 255, 255); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Arial Narrow', Arial, sans-serif;">ASF</button>
+            <button class="tab-btn" data-tab="jfk" style="color: rgb(255, 255, 255); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Arial Narrow', Arial, sans-serif;">JFKSWCS</button>
+            <button class="tab-btn" data-tab="soar" style="color: rgb(255, 255, 255); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Arial Narrow', Arial, sans-serif;">160th SOAR</button>
             
         </div>
 
@@ -1154,7 +1195,7 @@ footer {
                 <p>The 75th Ranger Regiment is one of five units within the Special Operations Command. The 75th Rangers Regiment is a light infantry unit that specializes in deployments and operations against high-risk enemies and foreign units. The Rangers Regiment is known for their special operations raids, forcible entry operations, and special reconnaissance.</p>
                 
                 <div class="unit-section">
-                    <h4>Regiment Structure</h4>
+                    <h4 style="color: #FFD700;">Regiment Structure</h4>
                     <p>The 75th Ranger Regiment consists of three elite Ranger Battalions:</p>
                     
 
@@ -1203,7 +1244,7 @@ footer {
                 <p>The 42nd Orbital Operations Division is one of the United States Army's premier units, specializing in operations across extreme environments. From orbital deployments to arctic warfare and desert combat, they maintain readiness in all conditions. Their motto "Per Mare Per Terras Per Constellatus" reflects their capability to fight anywhere.</p>
                 
                 <div class="unit-section">
-                    <h4>Global Intervention Battalion</h4>
+                    <h4 style="color: #FFD700;">Global Intervention Battalion</h4>
                     <p>The Global Intervention Battalion is the main combative battalion in the 42nd Orbital Operations Division. This battalion holds two companies, which both hold two platoons which all specialize in different aspects. We are the backbone to all of 42nd OOD, and house a majority of all personnel</p>
                 <h5>Companies:</h5>
                 <ul>
@@ -1214,7 +1255,7 @@ footer {
                 </div>
 
                 <div class="unit-section">
-                    <h4>Orbital Readiness Battalion</h4>
+                    <h4 style="color: #FFD700;">Orbital Readiness Battalion</h4>
                     <p>The Orbital Readiness Battalion focuses on training and preparing personnel for orbital missions. With a team of experienced instructors and advanced facilities, trainees receive the knowledge and skills needed for operations in space. The programs cover various aspects of orbital missions, providing hands-on experience and practical training.</p>
                     <p>The goal is to equip everyone with the confidence and competence to carry out their duties in the unique environment of space and harsh, physical environments.</p>
                     
@@ -1242,7 +1283,7 @@ footer {
                 <p>The Army Special Forces - also known as the Green Berets - are an elite fighting force at the forefront of all wars with insurgents. Tasked with securing the hearts and minds of the population and starting insurgencies, they are the first point of call for the Army Special Operations Command when they need a revolution stirred up somewhere or enemies neutralized in a civilian-inhabited area.</p>
                 
                 <div class="unit-section">
-                    <h4>1st Special Forces Group</h4>
+                    <h4 style="color: #FFD700;">1st Special Forces Group</h4>
                     <p>The 1st Special Forces Group is a highly elite unit within USAR, specializing in unconventional warfare and special operations. Members are trained for their specific roles and participate in raids, scrimmages, and tactical missions.</p>
                     
                     <h5>Alpha Company</h5>
@@ -1255,7 +1296,7 @@ footer {
                 
                 
                 <div class="unit-section">
-                    <h4>10th Special Forces Group</h4>
+                    <h4 style="color: #FFD700;">10th Special Forces Group</h4>
                     <p>The 10th Special Forces Group specializes in training and advising allied forces around the globe. With a focus on building capacity and enhancing operational effectiveness, their experts provide critical instruction in counter-terrorism, unconventional warfare, and tactical skills. Their mission is to empower partner nations through hands-on training and strategic guidance, fostering strong alliances and improving global security.</p>
                     <h5>Whiskey Company</h5>
                     <p>Whiskey Company focuses on hosting for alpha company, while also focused on being the most elite instructional unit when it comes to FPS. They not only host, but also evaluate alpha company candidates to ensure they are up to standards,</p>
@@ -1264,7 +1305,7 @@ footer {
                     <p>Yankee Company focuses on hosting for bravo company, focusing on wargames. They make sure to maintain a elite status when it comes to wargames between instructional units. And also evaluate bravo candidates to make sure they are up to standards.</p>
                 </div>
                 <div class="unit-section">
-                    <h4>Task Force 121</h4>
+                    <h4 style="color: #FFD700;">Task Force 121</h4>
                     <p>The main milsim unit, made for players who seek realistic operations and excellence in everything we do. We serve as an elite group for all sorts of operations, leading in high-risk situations. We specialize in high-risk operations, including High Value Target Elimination, Hostage Rescue and more. Only those who prove themselves may join our lines.</p>
                 </div>
             </div>
@@ -1285,12 +1326,12 @@ footer {
                 <p>The John F. Kennedy Special Warfare Center and School - also known as JFKSWCS - provides the United States Army with the highest quality badge and leadership courses, such as the Ranger School or the Military Freefall Course.</p>
                 
                 <div class="unit-section">
-                    <h4>Training Excellence</h4>
+                    <h4 style="color: #FFD700;">Training Excellence</h4>
                     <p>The John F. Kennedy Special Warfare Center and School prepares soldiers for advanced and specialized roles, whether that be a high attitude specialist or a pinpoint accurate marksman. JFKSWCS Instructors are the most prestigious in all of the United States Army, with only the best-becoming instructors in JFK, achieving the green beret.</p>
                 </div>
 
                 <div class="unit-section">
-                    <h4>1st Special Warfare Training Group</h4>
+                    <h4 style="color: #FFD700;">1st Special Warfare Training Group</h4>
                     <p>The 1st Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 1st Special Warfare Training Group handles some rudimentary US Army courses. this includes the Military Freefall Course, Pathfinder Badge Course, and the Expert Infantry Badge Qualification Course. The 1st Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
                     
                     <h5>Artemis Company</h5>
@@ -1301,7 +1342,7 @@ footer {
                 </div>
 
                 <div class="unit-section">
-                    <h4>2nd Special Warfare Training Group</h4>
+                    <h4 style="color: #FFD700;">2nd Special Warfare Training Group</h4>
                     <p>The 2nd Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 2nd Special Warfare Training Group handles some of the most rigorous courses within the United States Army, such as the Ranger School Course, which offers those who pass the renowned Ranger Tab and the Marksman Qualification Course. The 2nd Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
                     
                     <h5>Trojan Company</h5>
@@ -1328,7 +1369,7 @@ footer {
                 <p>160th Special Operations Aviation Regiment (more commonly known as 160th SOAR, or just 160th) is the only aviation unit out of the five units in Army Special Operations Command. It comprises two battalions, namely Eagle and Nightstalkers. The 160th conducts special aviation operations and is relied on by other divisions from within the command to conduct operations in the most challenging circumstances that no other person dare fly into. They are expertly trained in night-time operations, and are ready for any and all situations.</p>
                 
                 <div class="unit-section">
-                    <h4>Eagle Battalion</h4>
+                    <h4 style="color: #FFD700;">Eagle Battalion</h4>
                     <p>Consists of the best crewman of the skies. While handling their basic jobs of maintaining aircraft during and off flight, they also handle duties such as milsim, medical rescue, wargames and scrims. The battalion consists of two companies, Sierra, which handles all crewmen specific duties, and Charlie, which trains and prepares crewmen for their specialization.</p>
                     
                     <h5>Sierra Company</h5>
@@ -1339,7 +1380,7 @@ footer {
                 </div>
                 
                 <div class="unit-section">
-                    <h4>Nightstalkers Battalion</h4>
+                    <h4 style="color: #FFD700;">Nightstalkers Battalion</h4>
                     <p>The piloting group which specializes in transportation and attack support. Operating mostly under the cover of night, we're mostly seen utilizing the transport and attack variant of the BH.</p>
                     
                     <h5>Alpha Company</h5>
@@ -1359,7 +1400,7 @@ footer {
 <section id="propaganda" class="propaganda-section">
     <div class="propaganda-container">
         <div class="propaganda-section videos">
-            <h2>Video Propaganda</h2>
+            <h2 style="color: #FFD700;">Video Propaganda</h2>
             <div class="media-gallery">
                 <div class="gallery-grid">
                     <div class="gallery-item video-item">
@@ -1386,7 +1427,7 @@ footer {
         </div>
 
         <div class="propaganda-section images">
-            <h2>Image Propaganda</h2>
+            <h2 style="color: #FFD700;">Image Propaganda</h2>
             <div class="media-gallery">
                 <div class="gallery-grid">
                     <div class="gallery-item image-item">
@@ -1484,8 +1525,11 @@ footer {
             
         </div>
         
-        <div class="copyright">
-            <p>&copy; 2025 US Army Special Operations Command (Zan's USAR). All rights reserved.</p>
+        <div class="hero-badge">
+            <a href="https://rast0fx.github.io/Portfolio/" class="watermark" target="_blank">
+                <span class="author-name">Mhamad Koussa (rast0fx)</span>
+                <span class="author-title">Lead Developer</span>
+            </a>
         </div>
         </center>
     </footer>

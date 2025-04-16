@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Army Special Operations Command (Zan's USAR)</title>
+    <link rel="icon" href="https://i.postimg.cc/sgHmDkv6/usasoc-dui-800-removebg-preview.png" type="image/jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+    color: #f0f0f0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    background: #1A1A1A url('https://i.postimg.cc/YqJwPsxF/IT.png') no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(30, 30, 30, 0.2) 100%);
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="%23000000" opacity="0.03"/></svg>');
+    background-size: 100px 100px;
+    z-index: -1;
+    opacity: 0.05;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+    color: #FFD700; /* Gold */
+    text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: rgba(255,255,255,0.92); /* Slightly brighter */
+}
+
+/* Updated USASOC Color Scheme */
+:root {
+    --primary-color: #000000; /* Black */
+    --secondary-color: #FFD700; /* Gold */
+    --accent-color: #FFFFFF; /* White */
+    --text-color: #FFFFFF;
+    --dark-bg: #121212;
+}
+
+/* Header and Navigation */
+header {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(10, 10, 10, 0.9));
+    padding: 0.5rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Styles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active {
+    color: var(--secondary-color);
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+        height: calc(100vh - 70px);
+    }
+    
+    .nav-links.show {
+        transform: translateY(0);
+    }
+    
+    .nav-links li {
+        margin: 1rem 0;
+    }
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(10, 10, 10, 0.85)),
+                url('https://i.postimg.cc/GhJhCz85/ASOC-Propaganda.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.hero-content {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0 0h100v100H0z" fill="%230A0A0A" opacity="0.1"/></svg>') repeat;
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.hero-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.watermark {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.watermark:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Units Section Styles */
+.tab-container {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid #FFD700;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    background: rgba(0, 0, 0, 0.7);
+    color: #FFD700;
+    border: 1px solid #FFD700;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tab-btn:hover {
+    background: rgba(255, 215, 0, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.tab-btn.active {
+    background: #FFD700;
+    color: #1a1a1a;
+    border-color: #FFD700;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.3);
+}
+
+.tab-content {
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.unit-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.unit-badge {
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+    overflow: hidden;
+}
+
+.unit-emblem {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    filter: brightness(1.1) drop-shadow(0 0 2px rgba(255, 215, 0, 0.5));
+}
+
+.unit-header h3 {
+    font-size: 1.6rem;
+    letter-spacing: normal;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.unit-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.unit-info p {
+    background: rgba(0,0,0,0.3); /* Subtle dark background */
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.unit-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.unit-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+.unit-stats i {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+.unit-section h4 {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.unit-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.unit-section ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.7;
+    color: #e0e0e0;
+}
+
+.unit-section ul li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.unit-card {
+    background: rgba(30, 30, 30, 0.85);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.unit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.unit-card .unit-header {
+    padding: 1.5rem;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(10, 10, 10, 0.5));
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.unit-card .unit-content {
+    padding: 1.5rem;
+}
+
+.tab-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.unit-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.unit-header h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.unit-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.unit-badge i {
+    font-size: 1.2rem;
+}
+
+.unit-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.unit-info p {
+    background: rgba(0,0,0,0.3); /* Subtle dark background */
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.unit-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+}
+
+.unit-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.unit-stats i {
+    font-size: 1rem;
+}
+
+.unit-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.unit-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.unit-section ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.unit-section ul li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.unit-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.unit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tab-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .tab-btn {
+        flex: none;
+        width: 100%;
+    }
+    
+    .unit-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .unit-badge {
+        margin-bottom: 0.5rem;
+    }
+    
+    .unit-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .tab-buttons {
+        flex-direction: column;
+    }
+}
+
+/* About Section */
+#about {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, var(--light-bg), white);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mission-statement {
+    background: white;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mission-statement h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.mission-statement p {
+    font-style: italic;
+    color: var(--accent-color);
+    border-left: 4px solid #FFD700; 
+    padding-left: 1rem; 
+    background: rgba(255, 215, 0, 0.05); 
+    padding: 1rem; 
+    border-radius: 0 4px 4px 0;
+}
+
+.command-section {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #FFD700;
+    margin: 2rem 0;
+}
+.command-intro {
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+.command-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+.command-item {
+    background: rgba(30, 30, 30, 0.7);
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.command-item.highlight {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+.command-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.command-badge {
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.75rem;
+    font-family: monospace;
+}
+.command-title {
+    font-weight: 500;
+    color: #FFD700;
+}
+.command-name {
+    color: #ffffff;
+    font-weight: 400;
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(10, 10, 10, 0.9));
+    color: var(--accent-color);
+    padding: 2rem 0;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    margin-bottom: 1.5rem;
+}
+
+.footer-section h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    #units h2::after {
+        width: 80px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Search Highlight Style */
+.search-highlight {
+    background-color: rgba(255, 215, 0, 0.3);
+    outline: 2px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #FFD700;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-caption {
+    padding: 10px;
+    text-align: center;
+    color: #FFD700;
+    font-weight: bold;
+}
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://i.postimg.cc/sgHmDkv6/usasoc-dui-800-removebg-preview.png" alt="USASOC Logo" class="logo-img">
+                <span class="logo-text">USASOC</span>
+            </div>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#units"><i class="fas fa-envelope"></i> Units</a></li>
+                <li><a href="#propaganda"><i class="fas fa-image"></i> Propaganda</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Army Special Operations Command</h1>
+                <p>Elite Forces • Strategic Operations • Training</p>
+                <div class="hero-badge">
+                    <a href="https://rast0fx.github.io/Portfolio/" class="watermark" target="_blank">
+                        Made by Mhamad Koussa (rast0fx)
+                    </a>
+                </div>
+            </div>
+           
+        </section>
+        <section id="about">
+            <font color="black">
+                <center><h2>About ASOC</h2></center>
+            <div class="about-content highlight">
+                <p style="border-left: 4px solid #FFD700; padding-left: 1rem; background: rgba(255, 215, 0, 0.05); padding: 1rem; border-radius: 0 4px 4px 0;">Army Special Operations Command is responsible for the command and control of Army special operations forces worldwide. We provide rapid, sustainable, and scalable special operations forces ready to deploy, fight, and win.</p>
+                <div class="mission-statement">
+                    <h3>Mission Statement</h3>
+                    <p style="color: #FF0000; font-weight: bold; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); border-left: 4px solid #FFD700; padding-left: 1rem; background: rgba(255, 215, 0, 0.05); padding: 1rem; border-radius: 0 4px 4px 0;">"To provide rapid, sustainable, and scalable special operations forces ready to deploy, fight, and win across the full spectrum of military operations."</p>
+                </div>
+                <div class="unit-section command-section">
+                    <h4 style="border-bottom: 2px solid #FFD700; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">ASOC Chain of Command</h4>
+                    <p class="command-intro">Below is the official ASOC Chain of Command that all personnel are required to follow:</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div class="command-item" style="margin-bottom: 0.75rem;">
+                            <span class="command-title">Commanding General: <span class="command-name">General, Tvctical</span></span>
+                        </div>
+                        <div class="command-item" style="margin-bottom: 0.75rem;">
+                            <span class="command-title">Deputy Commanding General: <span class="command-name">Lieutenant General, CowTyrant</span></span>
+                        </div>
+                        <div class="command-item" style="margin-bottom: 0.75rem;">
+                            <span class="command-title">Command Sergeant Major: <span class="command-name">Command Sergeant Major, AliveMessi102</span></span>
+                        </div>
+                        <div class="command-item" style="margin-bottom: 0.75rem;">
+                            <span class="command-title">Chief of Staff: <span class="command-name">Major General, NeroOvuh</span></span>
+                        </div>
+                        <div class="command-item">
+                            <span class="command-title">Deputy Chief of Staff: <span class="command-name">Brigadier General, MichaeIMightBite</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </font>
+        </section>
+
+        <section id="units">
+    <center><h2>Our Elite Units</h2></center>
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="rangers">75th Ranger Regiment</button>
+            <button class="tab-btn" data-tab="orbital">42nd Orbital Operations Division</button>
+            <button class="tab-btn" data-tab="special-forces">Army Special Forces</button>
+            <button class="tab-btn" data-tab="jfk">John F. Kennedy Special Warfare Centre and School</button>
+            <button class="tab-btn" data-tab="soar">160th Special Operations Aviation Regiment</button>
+            
+        </div>
+
+        <div class="tab-content active" id="rangers">
+            <div class="unit-header">
+                <div class="unit-badge">
+                    <img src="https://i.postimg.cc/YSkdP6Lk/Distinctive-unit-insignia-of-the-75th-Ranger-Regiment-svg-removebg-preview.png" alt="75th Rangers Insignia" class="unit-emblem">
+                </div>
+                <h3>75th Ranger Regiment</h3>
+            </div>
+            <div class="unit-info">
+                <div class="unit-stats">
+                    <span><i class="fas fa-map-marker-alt"></i> Global Operations</span>
+                    <span><i class="fas fa-clock"></i> 24/7 Readiness</span>
+                </div>
+                <p>The 75th Ranger Regiment is one of five units within the Special Operations Command. The 75th Rangers Regiment is a light infantry unit that specializes in deployments and operations against high-risk enemies and foreign units. The Rangers Regiment is known for their special operations raids, forcible entry operations, and special reconnaissance.</p>
+                
+                <div class="unit-section">
+                    <h4>Regiment Structure</h4>
+                    <p>The 75th Ranger Regiment consists of three elite Ranger Battalions:</p>
+                    
+                    <div class="unit-subsection">
+                        <h5>Ranger Training Battalion</h5>
+                        <p>The training battalion of 75th, serving as the backbone of the unit. Without this battalion and its instructors, 75th would not be able to recruit and train new personnel. The battalion consists of one company that oversees all instructors and the Ranger Assessment and Selection Program.</p>
+                    </div>
+
+                    <div class="unit-subsection">
+                        <h5>1st Ranger Battalion</h5>
+                        <p>The elite battalion within 75th, focused on wargames and scrim/raids. They are the first to engage with enemies, deploying the best personnel 75th can offer. The battalion is organized into two specialized companies:</p>
+                        <ul>
+                            <li><strong>Hades Company</strong> - The scrimmage component of 1st Ranger Battalion</li>
+                            <li><strong>Ares Company</strong> - The wargames component of 1st Ranger Battalion</li>
+                        </ul>
+                        <ul>
+                            <li><strong>Hades Company</strong>: Scrimmage operations</li>
+                            <li><strong>Ares Company</strong>: Wargames operations</li>
+                        </ul>
+                        <p>Comprised of the best personnel 75th can offer, they are the first to engage against enemy forces.</p>
+                    </div>
+
+                    <div class="unit-subsection">
+                        <h5>2nd Ranger Battalion</h5>
+                        <p>The milsim and wargames component of 75th, tasked with reconnaissance and more realistic missions. As a milsim unit, they are proficient in essential military skills including medical procedures, different formations, and callouts, all crucial for successful deployments. The battalion consists of two specialized companies:</p>
+                        <ul>
+                            <li><strong>Zeus Company</strong> - Special Operations Raid Force, tasked with hostage retrieval from enemy territory with support from Direct Actions</li>
+                            <li><strong>Hephaestus Company</strong> - Highly-Trained Mechanized Force, responsible for quick-insertion of troops, evacuation, and general transportation into deployment zones</li>
+                        </ul>
+                        <ul>
+                            <li><strong>Zeus Company</strong>: Special Operations Raid Force - Hostage retrieval and direct action</li>
+                            <li><strong>Hephaestus Company</strong>: Highly-Trained Mechanized Force - Quick insertion, evacuation, and transportation</li>
+                        </ul>
+                        <p>Specialized in military simulation skills including medical procedures, formations, and tactical callouts.</p>
+                    </div>
+
+                    <div class="unit-subsection">
+                        <h5>Ranger Training Battalion</h5>
+                        <p>The backbone of the 75th Ranger Regiment, responsible for:</p>
+                        <ul>
+                            <li>Recruitment and training of new personnel</li>
+                            <li>Basic unit training and indoctrination</li>
+                            <li>Management of the Ranger Assessment and Selection Program</li>
+                        </ul>
+                        <p>Essential for maintaining the regiment's combat readiness and operational excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="orbital">
+            <div class="unit-header">
+                <div class="unit-badge">
+                    <img src="https://i.postimg.cc/SxK6Yg9n/42nd-Orbital-Operations-Division3-removebg-preview.png" alt="42nd Orbital Insignia" class="unit-emblem">
+                </div>
+                <h3>42nd Orbital Operations Division</h3>
+            </div>
+            <div class="unit-info">
+                <div class="unit-stats">
+                    <span><i class="fas fa-globe"></i> Multi-Terrain Operations</span>
+                    <span><i class="fas fa-shield-alt"></i> Elite Intervention Force</span>
+                </div>
+                <p>The 42nd Orbital Operations Division is one of the United States Army's premier units, specializing in operations across extreme environments. From orbital deployments to arctic warfare and desert combat, they maintain readiness in all conditions. Their motto "Per Mare Per Terras Per Constellatus" reflects their capability to fight anywhere.</p>
+                
+                <div class="unit-section">
+                    <h4>Global Intervention Battalion</h4>
+                    <p>The primary combat battalion consisting of two specialized companies, each containing two platoons with unique capabilities. As the backbone of the 42nd OOD, it houses the majority of division personnel and leads critical operations worldwide.</p>
+                </div>
+
+                <div class="unit-section">
+                    <h4>Orbital Readiness Battalion</h4>
+                    <p>The Orbital Readiness Battalion focuses on training and preparing personnel for orbital missions. With a team of experienced instructors and advanced facilities, trainees receive the knowledge and skills needed for operations in space. The programs cover various aspects of orbital missions, providing hands-on experience and practical training.</p>
+                    <p>The goal is to equip everyone with the confidence and competence to carry out their duties in the unique environment of space and harsh, physical environments.</p>
+                    
+                    <h5>Training Programs Include:</h5>
+                    <ul>
+                        <li>Zero-G Environment Adaptation</li>
+                        <li>Spacecraft Systems Operation</li>
+                        <li>Orbital Combat Tactics</li>
+                        <li>Extreme Environment Survival</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="special-forces">
+            <div class="unit-header">
+                <div class="unit-badge">
+                    <img src="https://i.postimg.cc/VNDWH3cB/United-States-Army-Special-Forces-SSI-1958-2015-removebg-preview.png" alt="Special Forces Insignia" class="unit-emblem">
+                </div>
+                <h3>Army Special Forces</h3>
+            </div>
+            <div class="unit-info">
+                <div class="unit-stats">
+                    <span><i class="fas fa-globe"></i> Global Operations</span>
+                    <span><i class="fas fa-shield-alt"></i> Elite Intervention Force</span>
+                </div>
+                <p>The Army Special Forces - also known as the Green Berets - are an elite fighting force at the forefront of all wars with insurgents. Tasked with securing the hearts and minds of the population and starting insurgencies, they are the first point of call for the Army Special Operations Command when they need a revolution stirred up somewhere or enemies neutralized in a civilian-inhabited area.</p>
+                
+                <div class="unit-section">
+                    <h4>1st Special Forces Group</h4>
+                    <p>The 1st Special Forces Group is a highly elite unit within USAR, specializing in unconventional warfare and special operations. Members are trained for their specific roles and participate in raids, scrimmages, and tactical missions.</p>
+                    
+                    <h5>Alpha Company</h5>
+                    <p>Specializes in raids and scrimmages, excelling in competitive tactical engagements.</p>
+                    
+                    <h5>Bravo Company</h5>
+                    <p>Focuses on wargames, known for their advanced strategies and teamwork in various wargames.</p>
+                </div>
+                
+                
+                
+                <div class="unit-section">
+                    <h4>10th Special Forces Group</h4>
+                    <p>The 10th Special Forces Group specializes in training and advising allied forces around the globe. With a focus on building capacity and enhancing operational effectiveness, their experts provide critical instruction in counter-terrorism, unconventional warfare, and tactical skills. Their mission is to empower partner nations through hands-on training and strategic guidance, fostering strong alliances and improving global security.</p>
+                    <h5>Whiskey Company</h5>
+                    <p>The Whiskey Company is responsible for the divisions Airborne Courses, such as the Military FreeFall Course and Pathfinder Badge Course. These courses are categorical to host and are one of the few courses that John F. Kennedy Special Warfare Center and School Personnel can take.</p>
+                    
+                    <h5>Yankee Company</h5>
+                    <p>The Yankee Company is responsible for John F. Kennedy Special Warfare Center and School's expert courses, these courses are meticulously supervised. The company itself is due to it's nature in hosting expert courses such as the Expert Infantryman Course.</p>
+                </div>
+                <div class="unit-section">
+                    <h4>Task Force 121</h4>
+                    <p>The main milsim unit, made for players who seek realistic operations and excellence in everything we do. We serve as an elite group for all sorts of operations, leading in high-risk situations. We specialize in high-risk operations, including High Value Target Elimination, Hostage Rescue and more. Only those who prove themselves may join our lines.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="jfk">
+            <div class="unit-header">
+                <div class="unit-badge">
+                    <img src="https://i.postimg.cc/T2yBgcrH/120px-Swcs-crest-removebg-preview.png" alt="JFK Center Insignia" class="unit-emblem">
+                </div>
+                <h3>John F. Kennedy Special Warfare Center and School</h3>
+            </div>
+            <div class="unit-info">
+                <div class="unit-stats">
+                    <span><i class="fas fa-book"></i> Training Center</span>
+                    <span><i class="fas fa-shield-alt"></i> Elite Training</span>
+                </div>
+                <p>The John F. Kennedy Special Warfare Center and School - also known as JFKSWCS - provides the United States Army with the highest quality badge and leadership courses, such as the Ranger School or the Military Freefall Course.</p>
+                
+                <div class="unit-section">
+                    <h4>Training Excellence</h4>
+                    <p>The John F. Kennedy Special Warfare Center and School prepares soldiers for advanced and specialized roles, whether that be a high attitude specialist or a pinpoint accurate marksman. JFKSWCS Instructors are the most prestigious in all of the United States Army, with only the best-becoming instructors in JFK, achieving the green beret.</p>
+                </div>
+
+                <div class="unit-section">
+                    <h4>1st Special Warfare Training Group</h4>
+                    <p>The 1st Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 1st Special Warfare Training Group handles some rudimentary US Army courses. this includes the Military Freefall Course, Pathfinder Badge Course, and the Expert Infantry Badge Qualification Course. The 1st Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
+                    
+                    <h5>Artemis Company</h5>
+                    <p>The Artemis Company is responsible for the divisions Airborne Courses, such as the Military FreeFall Course and Pathfinder Badge Course. These courses are categorical to host and are one of the few courses that John F. Kennedy Special Warfare Center and School Personnel can take.</p>
+                    
+                    <h5>Spartan Company</h5>
+                    <p>The Spartan Company is responsible for John F. Kennedy Special Warfare Center and School's expert courses, these courses are meticulously supervised. The company itself is due to it's nature in hosting expert courses such as the Expert Infantryman Course.</p>
+                </div>
+
+                <div class="unit-section">
+                    <h4>2nd Special Warfare Training Group</h4>
+                    <p>The 2nd Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 2nd Special Warfare Training Group handles some of the most rigorous courses within the United States Army, such as the Ranger School Course, which offers those who pass the renowned Ranger Tab and the Marksman Qualification Course. The 2nd Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
+                    
+                    <h5>Trojan Company</h5>
+                    <p>The Trojan Company is John F. Kennedy Special Warfare Center and School's sole recruitment company, tasked with recruitment and keeping retention in JFKSWCS. Trojan is also responsible for being there for Companies or Groups that are in need of help. While Trojan handles recruitment; it also is allowed to host the Military FreeFall Course of 1st Special Warfare Training Group.</p>
+                    
+                    <h5>Cyrus Company</h5>
+                    <p>The Cyrus Company is one of John F. Kennedy Special Warfare Center and School's leadership companies. Due to its nature of being able to host the divisions strict qualification courses, such as the Special Operations Diver Qualification Course, also known as Combat Diver Qualification Course. Cyrus Company also hosts JFKSWCS's Ranger School, which is one of the division's most strict course.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="soar">
+            <div class="unit-header">
+                <div class="unit-badge">
+                    <img src="https://i.postimg.cc/bw0T1ZC5/160th-SOAR-emblem-svg-removebg-preview.png" alt="160th SOAR Insignia" class="unit-emblem">
+                </div>
+                <h3>160th Special Operations Aviation Regiment</h3>
+            </div>
+            <div class="unit-info">
+                <div class="unit-stats">
+                    <span><i class="fas fa-globe"></i> Global Deployment</span>
+                    <span><i class="fas fa-clock"></i> 24/7 Rapid Response</span>
+                </div>
+                <p>160th Special Operations Aviation Regiment (more commonly known as 160th SOAR, or just 160th) is the only aviation unit out of the five units in Army Special Operations Command. It comprises two battalions, namely Eagle and Nightstalkers. The 160th conducts special aviation operations and is often asked to team up with the other divisions within the command to conduct special operations. On the other hand, 160th does not rely on the other divisions for their operations as they have their own elite personnel to conduct operations. Operations conducted by 160th varies from hostage rescues to clearing any hostile areas and securing it.</p>
+                
+                <div class="unit-section">
+                    <h4>Eagle Battalion</h4>
+                    <p>Consists of the best crewman of the skies. While handling their basic jobs of maintaining aircraft during and off flight, they also handle duties such as milsim, medical rescue, wargames and scrims. The battalion consists of two companies, Sierra, which handles all crewmen specific duties, and Charlie, which trains and prepares crewmen for their specialization.</p>
+                    
+                    <h5>Sierra Company</h5>
+                    <p>The primary crewmen unit, made up of three elite platoons. Zulu Platoon specializes in infantry operations, providing ground support and tactical expertise while also being one of our main scrim units. Inferno is the main crewmen platoon, handling tactical air operations including Close Air Support (CAS), rappelling, and helicopter repairs. Finally, Phoenix Platoon is the medical platoon, trained to provide critical medical support during operations.</p>
+                    
+                    <h5>Charlie Company</h5>
+                    <p>One of the most capable units in the United States Army, focused on developing and training new crewmen. They teach a wide range of professional skills, with a particular emphasis on air assault operations and working alongside helicopters in combined operations. The company's main mission is to train crewmen and instructors in the Special Operations School.</p>
+                </div>
+                
+                <div class="unit-section">
+                    <h4>Nightstalkers Battalion</h4>
+                    <p>The piloting group which specializes in transportation and attack support. Operating mostly under the cover of night, we're mostly seen utilizing the transport and attack variant of the BH.</p>
+                    
+                    <h5>Alpha Company</h5>
+                    <p>One of the most elite flying units in the United States Army. They're known for their expertise in flying a wide range of helicopters, handling everything from attack missions to transport operations. Whether it's getting troops into hot zones or providing air support, Alpha Company's pilots are trained to handle any situation with precision and skill.</p>
+                    
+                    <h5>Flight School Company</h5>
+                    <p>The foundation of aviation within ASOC. It's where all new pilots start their journey. They focus on giving incoming flight candidates the skills and knowledge they need to become most elite pilots of the next generation, shaping the aviators of tomorrow.</p>
+                    
+                    <h5>Black Angels Company</h5>
+                    <p>The first MILSIM-focused unit in SOAR, combining realistic military simulations with top-tier aviation training. They're also known for their impressive precision aerobatic performances and airshows, demonstrating their skill and control in the skies. As one of the most elite aviation companies in USAR, they excel in both combat operations and high-performance flying.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+<section id="propaganda">
+    <center><h2>Unit Propaganda Gallery</h2></center>
+    <div class="media-gallery">
+        <div class="gallery-grid">
+            <!-- Image Example -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300?text=Unit+Propaganda" alt="Unit Propaganda Image">
+                <div class="gallery-caption"></div>
+            </div>
+            
+            <!-- Video Example -->
+            <div class="gallery-item">
+                <div class="video-container">
+                    <iframe src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="gallery-caption"></div>
+            </div>
+            
+            <!-- Add more items as needed -->
+        </div>
+    </div>
+</section>
+        
+    </main>
+
+    <footer>
+        <center>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Official Roblox Groups</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.roblox.com/communities/3114833/Army-Special-Operations-Command#!/about" target="_blank"><img src="https://i.postimg.cc/sgHmDkv6/usasoc-dui-800-removebg-preview.png" alt="ASOC Logo" style="height: 20px; margin-right: 8px;"> ASOC Headquarters</a></li>
+                    <li><a href="https://www.roblox.com/communities/34097972/42nd-Orbital-Operations-Division#!/about" target="_blank"><img src="https://i.postimg.cc/SxK6Yg9n/42nd-Orbital-Operations-Division3-removebg-preview.png" alt="42nd Orbital Logo" style="height: 20px; margin-right: 8px;"> 42nd Orbital Division</a></li>
+                    <li><a href="https://www.roblox.com/communities/4985471/John-F-Kennedy-Special-Warfare-Center-and-School#!/about" target="_blank"><img src="https://i.postimg.cc/T2yBgcrH/120px-Swcs-crest-removebg-preview.png" alt="JFK Logo" style="height: 20px; margin-right: 8px;"> JFK Warfare Center</a></li>
+                    <li><a href="https://www.roblox.com/communities/3235972/Army-Special-Forces#!/about" target="_blank"><img src="https://i.postimg.cc/VNDWH3cB/United-States-Army-Special-Forces-SSI-1958-2015-removebg-preview.png" alt="Special Forces Logo" style="height: 20px; margin-right: 8px;"> Army Special Forces</a></li>
+                    <li><a href="https://www.roblox.com/communities/4978956/160th-Special-Operations-Aviati-n-Regiment#!/about" target="_blank"><img src="https://i.postimg.cc/bw0T1ZC5/160th-SOAR-emblem-svg-removebg-preview.png" alt="160th SOAR Logo" style="height: 20px; margin-right: 8px;"> 160th SOAR</a></li>
+                </ul>
+            </div>
+            
+           
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 US Army Special Operations Command (Zan's USAR). All rights reserved.</p>
+        </div>
+        </center>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Add active class to navigation links on scroll
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - sectionHeight / 3)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Tab functionality
+document.querySelectorAll('.tab-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        // Remove active class from all content
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        // Add active class to corresponding content
+        const tabId = button.getAttribute('data-tab');
+        const content = document.getElementById(tabId);
+        if (content) {
+            content.classList.add('active');
+        }
+    });
+});
+
+// Add parallax effect to hero section
+window.addEventListener('scroll', () => {
+    const hero = document.getElementById('hero');
+    const scrolled = window.pageYOffset;
+    hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+});
+
+// Add hover effect to unit badges
+document.querySelectorAll('.unit-badge').forEach(badge => {
+    badge.addEventListener('mouseenter', () => {
+        badge.style.transform = 'scale(1.1)';
+    });
+    
+    badge.addEventListener('mouseleave', () => {
+        badge.style.transform = 'scale(1)';
+    });
+});
+
+// Add reveal animation on scroll
+const observerOptions = {
+    threshold: 0.2
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('reveal');
+        }
+    });
+}, observerOptions);
+
+// Observe all unit cards
+document.querySelectorAll('.tab-content').forEach(content => {
+    observer.observe(content);
+});
+
+// Enhanced Search Functionality
+function initSearch() {
+    const searchBar = document.querySelector('.search-bar input');
+    const searchBtn = document.querySelector('.search-bar button');
+
+    if (!searchBar || !searchBtn) {
+        console.error('Search elements not found');
+        return;
+    }
+
+    function performSearch() {
+        try {
+            const searchTerm = searchBar.value.trim();
+            if (!searchTerm) return;
+            
+            // Reset previous highlights
+            document.querySelectorAll('.search-highlight').forEach(el => {
+                el.classList.remove('search-highlight');
+            });
+            
+            // Search through all text content
+            const elements = document.querySelectorAll('section, h1, h2, h3, p, li');
+            let found = false;
+            
+            elements.forEach(el => {
+                const text = el.textContent.toLowerCase();
+                if (text.includes(searchTerm.toLowerCase())) {
+                    found = true;
+                    el.classList.add('search-highlight');
+                    
+                    // Scroll to first match
+                    if (!found) {
+                        el.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
+                }
+            });
+            
+            if (!found) {
+                alert(`No results found for "${searchTerm}"`);
+            }
+        } catch (error) {
+            console.error('Search error:', error);
+        }
+    }
+
+    // Event listeners
+    searchBtn.addEventListener('click', performSearch);
+    searchBar.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') performSearch();
+    });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', initSearch);
+
+// Mobile menu toggle
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.toggle('show');
+});
+    </script>
+</body>
+</html>

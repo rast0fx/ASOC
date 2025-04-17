@@ -190,6 +190,54 @@ nav {
     z-index: 1001;
 }
 
+/* Mobile Header Styles */
+@media screen and (max-width: 768px) {
+    header {
+        background: rgba(0, 0, 0, 0.95);
+        padding: 0.5rem 0;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    nav {
+        padding: 0 1rem;
+    }
+
+    .logo-img {
+        height: 35px;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Footer Watermark Styles */
+
+}
+
 .mobile-menu-btn .menu-icon {
     display: block;
     width: 25px;
@@ -1038,6 +1086,39 @@ footer {
     width: 100%;
     height: 100%;
 }
+
+/* Unit Links Styling */
+.unit-links {
+    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.unit-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 6px;
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.unit-link-btn:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.unit-link-btn img {
+    height: 20px;
+    filter: none; /* Removes yellow filter */
+}
 </style>
 <body>
     <header>
@@ -1062,7 +1143,7 @@ footer {
             </button>
             <div class="mobile-nav">
                 <ul>
-                    <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+                    
                     <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
                     <li><a href="#units"><i class="fas fa-users"></i> Units</a></li>
                     <li><a href="#propaganda"><i class="fas fa-image"></i> Propaganda</a></li>
@@ -1088,7 +1169,7 @@ footer {
             <font color="black">
                 <center><h2 style="color: #FFD700;">About ASOC</h2></center>
             <div class="about-content highlight">
-                <p style="border-left: 4px solid #FFD700; padding-left: 1rem; background: rgba(255, 215, 0, 0.05); padding: 1rem; border-radius: 0 4px 4px 0;">Army Special Operations Command is responsible for the command and control of Army special operations forces worldwide. We provide rapid, sustainable, and scalable special operations forces ready to deploy, fight, and win.</p>
+                <p style="border-left: 4px solid #FFD700; padding-left: 1rem; background: rgba(255, 215, 0, 0.05); padding: 1rem; border-radius: 0 4px 4px 0;">The Army Special Operations Command is responsible for the command and control of Army special operations forces worldwide. We provide rapid, sustainable, and scalable special operations forces ready to deploy, fight, and win.</p>
                 <div class="mission-statement">
                     <h3>Mission Statement</h3>
                     <p style="color: #FF0000; font-weight: bold; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); border-left: 4px solid #FFD700; padding-left: 1rem; background: rgba(255, 215, 0, 0.05); padding: 1rem; border-radius: 0 4px 4px 0;">"To provide rapid, sustainable, and scalable special operations forces ready to deploy, fight, and win across the full spectrum of military operations."</p>
@@ -1143,6 +1224,16 @@ footer {
                 </div>
                 <h3 class="unit-name">75th Ranger Regiment</h3>
             </div>
+            <div class="unit-links" style="margin: 15px 0; display: flex; gap: 15px; justify-content: center;">
+                <a href="https://www.roblox.com/communities/5021791/75th-Rangers-Regiment#!/about" target="_blank" class="unit-link-btn" style="display: flex; align-items: center; gap: 5px;">
+                    <img src="https://i.postimg.cc/K8mYRG9Z/Distinctive-unit-insignia-of-the-75th-Ranger-Regiment-svg.png" alt="75th Logo" style="height: 20px;">
+                    Roblox Group
+                </a>
+                <a href="https://discord.gg/yZyN5E9XJu" target="_blank" class="unit-link-btn" style="display: flex; align-items: center; gap: 5px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord" style="height: 16px;">
+                    
+                </a>
+            </div>
             <div class="unit-info">
                 <div class="unit-stats">
                     <span><i class="fas fa-map-marker-alt"></i> Global Operations</span>
@@ -1192,6 +1283,16 @@ footer {
                 </div>
                 <h3 class="unit-name">42nd Orbital Operations Division</h3>
             </div>
+            <div class="unit-links">
+                <a href="https://www.roblox.com/communities/34097972/42nd-Orbital-Operations-Division#!/about" target="_blank" class="unit-link-btn">
+                    <img src="https://i.postimg.cc/SxK6Yg9n/42nd-Orbital-Operations-Division3-removebg-preview.png" alt="42nd Logo">
+                    Roblox Group
+                </a>
+                <a href="https://discord.gg/VtJarmxApq" target="_blank" class="unit-link-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord">
+                    
+                </a>
+            </div>
             <div class="unit-info">
                 <div class="unit-stats">
                     <span><i class="fas fa-globe"></i> Multi-Terrain Operations</span>
@@ -1230,6 +1331,16 @@ footer {
                     <img src="https://i.postimg.cc/VNDWH3cB/United-States-Army-Special-Forces-SSI-1958-2015-removebg-preview.png" alt="Special Forces Insignia" class="unit-emblem">
                 </div>
                 <h3 class="unit-name">Army Special Forces</h3>
+            </div>
+            <div class="unit-links">
+                <a href="https://www.roblox.com/communities/3235972/Army-Special-Forces#!/about" target="_blank" class="unit-link-btn">
+                    <img src="https://i.postimg.cc/VNDWH3cB/United-States-Army-Special-Forces-SSI-1958-2015-removebg-preview.png" alt="ASF Logo">
+                    Roblox Group
+                </a>
+                <a href="https://discord.gg/ehjnVHvDpM" target="_blank" class="unit-link-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord">
+                
+                </a>
             </div>
             <div class="unit-info">
                 <div class="unit-stats">
@@ -1272,7 +1383,17 @@ footer {
                 <div class="unit-badge">
                     <img src="https://i.postimg.cc/T2yBgcrH/120px-Swcs-crest-removebg-preview.png" alt="JFK Center Insignia" class="unit-emblem">
                 </div>
-                <h3 class="unit-name">John F. Kennedy Special Warfare Center and School</h3>
+                <h3 class="unit-name">JFKSWCS</h3>
+            </div>
+            <div class="unit-links">
+                <a href="https://www.roblox.com/communities/4985471/John-F-Kennedy-Special-Warfare-Center-and-School#!/about" target="_blank" class="unit-link-btn">
+                    <img src="https://i.postimg.cc/T2yBgcrH/120px-Swcs-crest-removebg-preview.png" alt="JFKSWCS Logo">
+                    Roblox Group
+                </a>
+                <a href="https://discord.gg/4Ht6VjAuew" target="_blank" class="unit-link-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord">
+                    
+                </a>
             </div>
             <div class="unit-info">
                 <div class="unit-stats">
@@ -1317,6 +1438,16 @@ footer {
                 </div>
                 <h3 class="unit-name">160th Special Operations Aviation Regiment</h3>
             </div>
+            <div class="unit-links">
+                <a href="https://www.roblox.com/communities/4978956/160th-Special-Operations-Aviati-n-Regiment#!/about" target="_blank" class="unit-link-btn">
+                    <img src="https://i.postimg.cc/bw0T1ZC5/160th-SOAR-emblem-svg-removebg-preview.png" alt="160th SOAR Logo">
+                    Roblox Group
+                </a>
+                <a href="https://discord.gg/f3UdJ55tu5" target="_blank" class="unit-link-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord">
+                    
+                </a>
+            </div>
             <div class="unit-info">
                 <div class="unit-stats">
                     <span><i class="fas fa-globe"></i> Global Deployment</span>
@@ -1350,9 +1481,9 @@ footer {
                 </div>
             </div>
         </div>
+</section>
 
-
-
+<br>
 <section id="propaganda" class="propaganda-section">
     <div class="propaganda-container">
         <div class="propaganda-section videos">
@@ -1419,74 +1550,18 @@ footer {
         <center>
         <div class="footer-content">
             
-            <div class="footer-section">
-                <h3>Official Groups</h3>
-                <ul class="footer-links">
-                    <li>
-                        <a href="https://www.roblox.com/communities/3114833/Army-Special-Operations-Command#!/about" target="_blank">
-                            <img src="https://i.postimg.cc/sgHmDkv6/usasoc-dui-800-removebg-preview.png" alt="ASOC Logo" style="height: 20px; margin-right: 8px;"> 
-                            ASOC 
-                        </a>
-                        <a href="https://discord.gg/m6McUMkeTb" target="_blank" class="discord-link">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord" style="height: 16px; margin-left: 10px;">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.roblox.com/communities/34097972/42nd-Orbital-Operations-Division#!/about" target="_blank">
-                            <img src="https://i.postimg.cc/SxK6Yg9n/42nd-Orbital-Operations-Division3-removebg-preview.png" alt="42nd Orbital Logo" style="height: 20px; margin-right: 8px;"> 
-                            42nd Orbital Division
-                        </a>
-                        <a href="https://discord.gg/VtJarmxApq" target="_blank" class="discord-link">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord" style="height: 16px; margin-left: 10px;">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.roblox.com/communities/4985471/John-F-Kennedy-Special-Warfare-Center-and-School#!/about" target="_blank">
-                            <img src="https://i.postimg.cc/T2yBgcrH/120px-Swcs-crest-removebg-preview.png" alt="JFK Logo" style="height: 20px; margin-right: 8px;"> 
-                            JFKSWCS
-                        </a>
-                        <a href="https://discord.gg/4Ht6VjAuew" target="_blank" class="discord-link">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord" style="height: 16px; margin-left: 10px;">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.roblox.com/communities/3235972/Army-Special-Forces#!/about" target="_blank">
-                            <img src="https://i.postimg.cc/VNDWH3cB/United-States-Army-Special-Forces-SSI-1958-2015-removebg-preview.png" alt="Special Forces Logo" style="height: 20px; margin-right: 8px;"> 
-                            Army Special Forces
-                        </a>
-                        <a href="https://discord.gg/ehjnVHvDpM" target="_blank" class="discord-link">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord" style="height: 16px; margin-left: 10px;">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.roblox.com/communities/4978956/160th-Special-Operations-Aviati-n-Regiment#!/about" target="_blank">
-                            <img src="https://i.postimg.cc/bw0T1ZC5/160th-SOAR-emblem-svg-removebg-preview.png" alt="160th SOAR Logo" style="height: 20px; margin-right: 8px;"> 
-                            160th SOAR
-                        </a>
-                        <a href="https://discord.gg/f3UdJ55tu5" target="_blank" class="discord-link">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord" style="height: 16px; margin-left: 10px;">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.roblox.com/communities/5021791/75th-Rangers-Regiment#!/about" target="_blank">
-                            <img src="https://i.postimg.cc/K8mYRG9Z/Distinctive-unit-insignia-of-the-75th-Ranger-Regiment-svg.png" alt="75th Rangers Regiment Logo" style="height: 20px; margin-right: 8px;"> 
-                            75th Rangers Regiment
-                        </a>
-                        <a href="https://discord.gg/yZyN5E9XJu" target="_blank" class="discord-link">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord" style="height: 16px; margin-left: 10px;">
-                        </a>
-                    </li>
-                </ul>
+            <font color="yellow">
+            <b> <div class="hero-badge watermark-container" style="background: linear-gradient(00FFFFFF); color: white; padding: 8px 16px; border-radius: 8px;">
+                <a href="https://rast0fx.github.io/Portfolio/" class="watermark" target="_blank" style="color: white; text-decoration: none;">
+                    <span class="author-name">Mhamad Koussa</span>
+                    <span class="author-handle">(rast0fx)</span> <br>
+                    <span class="author-title">Lead Developer</span>
+                </a>
             </div>
-            
+            </font>
         </div>
         
-        <div class="hero-badge">
-            <a href="https://rast0fx.github.io/Portfolio/" class="watermark" target="_blank">
-                <span class="author-name">Mhamad Koussa (rast0fx)</span>
-                <span class="author-title">Lead Developer</span>
-            </a>
-        </div>
+
         </center>
     </footer>
 

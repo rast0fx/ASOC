@@ -409,254 +409,181 @@ nav {
 
 /* Units Section Styles */
 .tab-container {
-    background: rgba(15, 15, 15, 0.95);
-    border: 1px solid #FFD700;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .tab-buttons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .tab-btn {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%);
     color: rgb(255, 255, 255);
     border: 2px solid rgba(255, 215, 0, 0.2);
-    padding: 0.85rem 1.75rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    border-radius: 6px;
     text-transform: uppercase;
-    font-size: 0.95rem;
-    letter-spacing: 1.2px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-    position: relative;
-    overflow: hidden;
-    font-weight: bold;
-}
-
-.tab-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    letter-spacing: 1px;
+    font-family: 'Arial Narrow', Arial, sans-serif;
 }
 
 .tab-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
     border-color: rgba(255, 215, 0, 0.4);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.tab-btn:hover::before {
-    transform: translateX(0);
 }
 
 .tab-btn.active {
-    background: linear-gradient(135deg, #FFD700 0%, #FFD700 100%);
-    color: #1a1a1a;
-    border-color: #FFD700;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
-    position: relative;
-}
-
-.tab-btn.active::before {
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), transparent);
-    transform: translateX(0);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.1) 100%);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
 }
 
 .tab-content {
-    background: rgba(40, 40, 40, 0.9);
-    border: 1px solid rgba(255, 215, 0, 0.15);
-    padding: 1.5rem;
-    border-radius: 8px;
     display: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-top: 1.5rem;
 }
 
 .tab-content.active {
     display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 .unit-header {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    text-align: center;
     margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--primary-color);
 }
 
 .unit-badge {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    
+    border-radius: 50%;
+    padding: 2.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.unit-badge:hover {
+    transform: scale(1.05);
 }
 
 .unit-emblem {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    filter: brightness(1.1) drop-shadow(0 0 2px rgba(255, 215, 0, 0.5));
-}
-
-.unit-header h3 {
-    font-size: 1.6rem;
-    letter-spacing: normal;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    font-size: 1.8rem;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 .unit-info {
     max-width: 800px;
     margin: 0 auto;
+    color: #FFFFFF; /* Pure white for better contrast */
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-top: 2rem;
 }
 
 .unit-info p {
-    background: rgba(0,0,0,0.3); /* Subtle dark background */
-    padding: 0.5rem;
-    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05); /* Subtle background for better readability */
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
 }
 
 .unit-stats {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    font-size: 0.9rem;
-    color: var(--accent-color);
-    background: rgba(0, 0, 0, 0.3);
-    padding: 1rem;
-    border-radius: 8px;
-    border-left: 4px solid var(--primary-color);
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    color: #FFD700; /* Gold for better visibility */
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .unit-stats span {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
+    background: rgba(255, 215, 0, 0.15); /* More visible gold accent */
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
 }
 
-.unit-stats i {
-    font-size: 1rem;
-    color: var(--secondary-color);
+.unit-description {
+    text-align: center;
+    line-height: 1.8;
+    margin-top: 1.5rem;
 }
 
-.unit-section h4 {
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-    margin-bottom: 1.2rem;
-    color: #FFD700;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.unit-section ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.unit-section ul li {
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-    line-height: 1.7;
-    color: #e0e0e0;
-}
-
-.unit-section ul li::before {
-    content: "•";
-    color: var(--primary-color);
-    position: absolute;
-    left: 0;
-}
-
-.unit-card {
-    background: rgba(30, 30, 30, 0.85);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    margin-bottom: 2rem;
+.unit-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
     border: 1px solid rgba(255, 215, 0, 0.1);
 }
 
-.unit-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 215, 0, 0.3);
+.unit-section h4 {
+    color: #FFD700;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
-.unit-header .unit-name {
-    color: yellow !important;
+.unit-section h5 {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
 }
 
-/* Responsive Design */
+.unit-section p {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.company-info {
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.company-info strong {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
 @media (max-width: 768px) {
-    .tab-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
+    .unit-info {
+        font-size: 1.1rem;
+        line-height: 1.9;
     }
-    
-    .tab-btn {
-        flex: none;
-        width: 100%;
+
+    .unit-section {
+        padding: 1.25rem;
     }
-    
-    .unit-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-    
-    .unit-badge {
-        margin-bottom: 0.5rem;
-    }
-    
-    .unit-stats {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .nav-links {
-        gap: 1rem;
-    }
-    
-    .tab-buttons {
-        flex-direction: column;
+
+    .unit-stats span {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -1183,17 +1110,17 @@ footer {
                             <span class="command-title">Commanding General: <span class="command-name">General, Tvctical</span></span>
                         </div>
                         <div class="command-item" style="margin-bottom: 0.75rem;">
-                            <span class="command-title">Deputy Commanding General: <span class="command-name">Lieutenant General, CowTyrant</span></span>
+                            <span class="command-title">Deputy Commanding General: <span class="command-name">Lieutenant General, NeroOvuh
+                            </span></span>
                         </div>
                         <div class="command-item" style="margin-bottom: 0.75rem;">
-                            <span class="command-title">Command Sergeant Major: <span class="command-name">Command Sergeant Major, Nero0vuh</span></span>
+                            <span class="command-title">Command Sergeant Major: <span class="command-name">Command Sergeant Major, MichaeIMightBite </span></span>
                         </div>
                         <div class="command-item" style="margin-bottom: 0.75rem;">
-                            <span class="command-title">Chief of Staff: <span class="command-name">Major General, MichaeIMightBite</span></span>
+                            <span class="command-title">Chief of Staff: <span class="command-name">Major General, kellxly
+                            </span></span>
                         </div>
-                        <div class="command-item">
-                            <span class="command-title">Deputy Chief of Staff: <span class="command-name">VACANT</span></span>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -1210,7 +1137,7 @@ footer {
     <div class="tab-container">
         <div class="tab-buttons">
             <button class="tab-btn active" data-tab="rangers" style="color: rgb(255, 255, 255); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Arial Narrow', Arial, sans-serif;">75th RR</button>
-            <button class="tab-btn" data-tab="orbital" style="color: rgb(255, 255, 255); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Arial Narrow', Arial, sans-serif;">42nd OOD</button>
+         
             <button class="tab-btn" data-tab="special-forces" style="color: rgb(255, 255, 255); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Arial Narrow', Arial, sans-serif;">ASF</button>
             <button class="tab-btn" data-tab="jfk" style="color: rgb(255, 255, 255); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Arial Narrow', Arial, sans-serif;">JFKSWCS</button>
             <button class="tab-btn" data-tab="soar" style="color: rgb(255, 255, 255); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: 'Arial Narrow', Arial, sans-serif;">160th SOAR</button>
@@ -1224,106 +1151,51 @@ footer {
                 </div>
                 <h3 class="unit-name">75th Ranger Regiment</h3>
             </div>
-            <div class="unit-links" style="margin: 15px 0; display: flex; gap: 15px; justify-content: center;">
-                <a href="https://www.roblox.com/communities/5021791/75th-Rangers-Regiment#!/about" target="_blank" class="unit-link-btn" style="display: flex; align-items: center; gap: 5px;">
-                    <img src="https://i.postimg.cc/K8mYRG9Z/Distinctive-unit-insignia-of-the-75th-Ranger-Regiment-svg.png" alt="75th Logo" style="height: 20px;">
-                    Roblox Group
-                </a>
-                <a href="https://discord.gg/yZyN5E9XJu" target="_blank" class="unit-link-btn" style="display: flex; align-items: center; gap: 5px;">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord" style="height: 16px;">
-                    
-                </a>
-            </div>
-            <div class="unit-info">
-                <div class="unit-stats">
-                    <span><i class="fas fa-map-marker-alt"></i> Global Operations</span>
-                    <span><i class="fas fa-clock"></i> 24/7 Readiness</span>
-                </div>
-                <p>The 75th Ranger Regiment is one of five units within the Special Operations Command. The 75th Rangers Regiment is a light infantry unit that specializes in deployments and operations against high-risk enemies and foreign units. The Rangers Regiment is known for their special operations raids, forcible entry operations, and special reconnaissance.</p>
-                
-                <div class="unit-section">
-                    <h4 style="color: #FFD700;">Regiment Structure</h4>
-                    <p>The 75th Ranger Regiment consists of three elite Ranger Battalions:</p>
-                    
-
-                    <div class="unit-subsection">
-                        <h5>1st Ranger Battalion</h5>
-                        <p>The elite battalion within 75th, focused on wargames and scrim/raids. They are the first to engage with enemies, deploying the best personnel 75th can offer. The battalion is organized into two specialized companies:</p>
-                        <ul>
-                            <li><strong>Hades Company</strong> - The scrimmage component of 1st Ranger Battalion</li>
-                            <li><strong>Ares Company</strong> - The wargames component of 1st Ranger Battalion</li>
-                        </ul>
-                        
-                        <p>Comprised of the best personnel 75th can offer, they are the first to engage against enemy forces.</p>
-                    </div>
-
-                    <div class="unit-subsection">
-                        <h5>2nd Ranger Battalion</h5>
-                        <p>The wargames component of 75th, tasked with reconnaissance and more realistic missions. As a milsim unit, they are proficient in essential military skills including medical procedures, different formations, and callouts, all crucial for successful deployments. The battalion consists of two specialized companies:</p>
-                        <ul>
-                            <li><strong>Zeus Company</strong> - Special Operations Raid Force, tasked with hostage retrieval from enemy territory with support from Direct Actions</li>
-                            <li><strong>Hephaestus Company</strong> - Highly-Trained Mechanized Force, responsible for quick-insertion of troops, evacuation, and general transportation into deployment zones</li>
-                        </ul>
-                        
-                        <p>Specialized in military simulation skills including medical procedures, formations, and tactical callouts.</p>
-                    </div>
-
-                    <div class="unit-subsection">
-                        <h5>Ranger Training Battalion</h5>
-                        <p>Ranger Training Battalion entails the hosting of all phases within the RASP (Ranger Assessment and Selection Program). Instructors will instruct candidates who passed our tryout and are currently processing through our program. Instructors will host RSDC 1 - 4 which include a JT, Land Navigation, Unit Specialization Classroom, and an Inspection. Instructors will also host RILC 1 - 5 which include a JT, Land Navigation, Inspection, and Supervision Phases. They also can host selections to Introduce new members to RASP. Head Instructors as well as Assistant Head Instructors grade RILC Final Exams.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="tab-content" id="orbital">
-            <div class="unit-header">
-                <div class="unit-badge">
-                    <img src="https://i.postimg.cc/SxK6Yg9n/42nd-Orbital-Operations-Division3-removebg-preview.png" alt="42nd Orbital Insignia" class="unit-emblem">
-                </div>
-                <h3 class="unit-name">42nd Orbital Operations Division</h3>
-            </div>
             <div class="unit-links">
-                <a href="https://www.roblox.com/communities/34097972/42nd-Orbital-Operations-Division#!/about" target="_blank" class="unit-link-btn">
-                    <img src="https://i.postimg.cc/SxK6Yg9n/42nd-Orbital-Operations-Division3-removebg-preview.png" alt="42nd Logo">
+                <a href="https://www.roblox.com/communities/75th-Ranger-Regiment#!/about" target="_blank" class="unit-link-btn">
+                    <img src="https://i.postimg.cc/YSkdP6Lk/Distinctive-unit-insignia-of-the-75th-Ranger-Regiment-svg-removebg-preview.png" alt="75th Rangers Logo">
                     Roblox Group
                 </a>
-                <a href="https://discord.gg/VtJarmxApq" target="_blank" class="unit-link-btn">
+                <a href="https://discord.gg/75thRR" target="_blank" class="unit-link-btn">
                     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Discord_logo.svg/240px-Discord_logo.svg.png" alt="Discord">
-                    
                 </a>
             </div>
             <div class="unit-info">
                 <div class="unit-stats">
-                    <span><i class="fas fa-globe"></i> Multi-Terrain Operations</span>
-                    <span><i class="fas fa-shield-alt"></i> Elite Intervention Force</span>
+                    <span><i class="fas fa-globe"></i> Global Deployment</span>
+                    <span><i class="fas fa-clock"></i> Rapid Response</span>
+                    <span><i class="fas fa-shield-alt"></i> Elite Unit</span>
                 </div>
-                <p>The 42nd Orbital Operations Division is one of the United States Army's premier units, specializing in operations across extreme environments. From orbital deployments to arctic warfare and desert combat, they maintain readiness in all conditions. Their motto "Per Mare Per Terras Per Constellatus" reflects their capability to fight anywhere.</p>
+                <p>The 75th Ranger Regiment consists of three elite Ranger Battalions, each specialized in different aspects of military operations. Known for their rigorous selection process and demanding training, Rangers are among the most skilled soldiers in the US Army.</p>
                 
                 <div class="unit-section">
-                    <h4 style="color: #FFD700;">Global Intervention Battalion</h4>
-                    <p>The Global Intervention Battalion is the main combative battalion in the 42nd Orbital Operations Division. This battalion holds two companies, which both hold two platoons which all specialize in different aspects. We are the backbone to all of 42nd OOD, and house a majority of all personnel</p>
-                <h5>Companies:</h5>
-                <ul>
-                    <li><strong>Eclipse Company</strong>: The introductory company focused on acclimating new personnel and pushing them to become the best combative fighters. Contains Leo & Gemini Platoon.</li>
-                    <li><strong>Trident Company</strong>: Specializes in anti-air missions and medical aid. Contains Consano (medical) & Vulcan (anti-air) Platoon.</li>
-                    <li><strong>Nova Drop Force</strong>: The most elite combat force specializing in competitive raids, scrimmages, and wargame matches.</li>
-                </ul>
+                    <h4 style="color: #FFD700;">1st Ranger Battalion</h4>
+                    <p>The elite battalion within 75th, focused on wargames and scrim/raids. They are the first to engage with enemies, deploying the best personnel 75th can offer. The battalion is organized into two specialized companies:</p>
+                    <div class="company-info">
+                        <strong>Hades Company</strong> The scrimmage component of 1st Ranger Battalion<br>
+                        <strong>Ares Company</strong> The wargames component of 1st Ranger Battalion
+                    </div>
+                    <p>Comprised of the best personnel 75th can offer, they are the first to engage against enemy forces.</p>
                 </div>
 
                 <div class="unit-section">
-                    <h4 style="color: #FFD700;">Orbital Readiness Battalion</h4>
-                    <p>The Orbital Readiness Battalion focuses on training and preparing personnel for orbital missions. With a team of experienced instructors and advanced facilities, trainees receive the knowledge and skills needed for operations in space. The programs cover various aspects of orbital missions, providing hands-on experience and practical training.</p>
-                    <p>The goal is to equip everyone with the confidence and competence to carry out their duties in the unique environment of space and harsh, physical environments.</p>
-                    
-                    <h5>Companies:</h5>
-                    <ul>
-                        <li><strong>Atlas Company</strong>: Specializes in rough terrain and survival of harsh environments. Hosts the Cold Weather Leaders Course for Arctic Tab qualification.</li>
-                        <li><strong>Helios Company</strong>: In charge of orbital training tryouts and phases. Awards the Army Parachutist Badge & Space Operations Badge.</li>
-                    </ul>
+                    <h4 style="color: #FFD700;">2nd Ranger Battalion</h4>
+                    <p>The wargames component of 75th, tasked with reconnaissance and more realistic missions. As a milsim unit, they are proficient in essential military skills including medical procedures, different formations, and callouts, all crucial for successful deployments. The battalion consists of two specialized companies:</p>
+                    <div class="company-info">
+                        <strong>Zeus Company</strong>Special Operations Raid Force, tasked with hostage retrieval from enemy territory with support from Direct Actions<br>
+                        <strong>Hephaestus Company</strong>Highly-Trained Mechanized Force, responsible for quick-insertion of troops, evacuation, and general transportation into deployment zones
+                    </div>
+                    <p>Specialized in military simulation skills including medical procedures, formations, and tactical callouts.</p>
+                </div>
+
+                <div class="unit-section">
+                    <h4 style="color: #FFD700;">Ranger Training Battalion</h4>
+                    <p>Ranger Training Battalion entails the hosting of all phases within the RASP (Ranger Assessment and Selection Program). Instructors will instruct candidates who passed our tryout and are currently processing through our program. Instructors will host RSDC 1 - 4 which include a JT, Land Navigation, Unit Specialization Classroom, and an Inspection. Instructors will also host RILC 1 - 5 which include a JT, Land Navigation, Inspection, and Supervision Phases. They also can host selections to Introduce new members to RASP. Head Instructors as well as Assistant Head Instructors grade RILC Final Exams.</p>
                 </div>
             </div>
         </div>
+
+       
 
         <div class="tab-content" id="special-forces">
             <div class="unit-header">
@@ -1383,7 +1255,7 @@ footer {
                 <div class="unit-badge">
                     <img src="https://i.postimg.cc/T2yBgcrH/120px-Swcs-crest-removebg-preview.png" alt="JFK Center Insignia" class="unit-emblem">
                 </div>
-                <h3 class="unit-name">JFKSWCS</h3>
+                <h3 class="unit-name">John F. Kennedy Special Warfare Center and School</h3>
             </div>
             <div class="unit-links">
                 <a href="https://www.roblox.com/communities/4985471/John-F-Kennedy-Special-Warfare-Center-and-School#!/about" target="_blank" class="unit-link-btn">
@@ -1422,11 +1294,20 @@ footer {
                     <h4 style="color: #FFD700;">2nd Special Warfare Training Group</h4>
                     <p>The 2nd Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 2nd Special Warfare Training Group handles some of the most rigorous courses within the United States Army, such as the Ranger School Course, which offers those who pass the renowned Ranger Tab and the Marksman Qualification Course. The 2nd Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
                     
-                    <h5>Trojan Company</h5>
-                    <p>The Trojan Company is John F. Kennedy Special Warfare Center and School's sole recruitment company, tasked with recruitment and keeping retention in JFKSWCS. Trojan is also responsible for being there for Companies or Groups that are in need of help. While Trojan handles recruitment; it also is allowed to host the Military FreeFall Course of 1st Special Warfare Training Group.</p>
+                    <h5>Neptune Company</h5>
+                    <p>Coming soon...</p>
                     
                     <h5>Cyrus Company</h5>
                     <p>The Cyrus Company is one of John F. Kennedy Special Warfare Center and School's leadership companies. Due to its nature of being able to host the divisions strict qualification courses, such as the Special Operations Diver Qualification Course, also known as Combat Diver Qualification Course. Cyrus Company also hosts JFKSWCS's Ranger School, which is one of the division's most strict course.</p>
+                </div>
+                <div class="unit-section">
+                    <h4 style="color: #FFD700;">Special Warfare Education Group</h4>
+                    <p>The Special Warfare Education Group is the backbone of JFKSWCS, acting as the primary recruitment group. It is one of the few mobile-friendly brigades/groups within USAR, assisting with recruitment for 1st SWTG, 2nd SWTG, and itself. The group also has the authority to host the Military Freefall Course and, for PC users, the Expert Field Medical Course alongside JFKSWCS.</p>
+                    
+                    <h5>Trojan Company</h5>
+                    <p>The Trojan Company is the sole recruitment company for the John F. Kennedy Special Warfare Center and School (JFKSWCS). It is responsible for recruitment and retention within JFKSWCS and offers support to other companies or groups in need. In addition to handling recruitment, Trojan is authorized to host the Military Freefall Course for 1st Special Warfare Training Group (SWTG).</p>
+                    
+    
                 </div>
             </div>
         </div>
@@ -1521,10 +1402,7 @@ footer {
                         <img src="https://i.postimg.cc/mkvqng5K/pouiy.png" alt="Army Special Forces Propaganda">
                         <div class="gallery-caption">Army Special Forces</div>
                     </div>
-                    <div class="gallery-item image-item">
-                        <img src="https://i.postimg.cc/nLVH237B/tweaker-00000.png" alt="42nd Orbital Division Propaganda">
-                        <div class="gallery-caption">42nd Orbital Division</div>
-                    </div>
+                
                     <div class="gallery-item image-item">
                         <img src="https://i.postimg.cc/J7HRpDy6/SOAR-24.png" alt="160th SOAR Propaganda">
                         <div class="gallery-caption">160th SOAR</div>
